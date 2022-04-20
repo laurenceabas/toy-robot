@@ -7,3 +7,8 @@ move
 left
 move
 report
+place 1,1,south
+move
+right
+move
+report

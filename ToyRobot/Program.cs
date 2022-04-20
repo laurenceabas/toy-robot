@@ -44,11 +44,9 @@ namespace ToyRobot
 
             Console.Clear();
             Console.WriteLine();
-            Console.WriteLine();
 
             foreach(var cmd in commands)
             {
-                Console.WriteLine(cmd.ToUpper());
 
                 if(cmd.StartsWith("PLACE "))
                 {
@@ -57,11 +55,13 @@ namespace ToyRobot
 
                     robot = new Robot(position, board);
                     isInitialized = true;
+                    Console.WriteLine("Robot starting ---------");
                 }
 
-                if(isInitialized)
+                if (isInitialized)
                 {
-                    if(canMove)
+                    Console.WriteLine(cmd.ToUpper());
+                    if (canMove)
                     {
                         switch (cmd)
                         {
@@ -74,6 +74,12 @@ namespace ToyRobot
                             case "RIGHT":
                                 robot.Rotate(Rotation.Right);
                                 break;
+                            case "REPORT":
+                                Console.WriteLine("Output: " + robot.ToString());
+                                Console.WriteLine("-----------------------------");
+                                isInitialized = false;
+                                canMove = true;
+                                break;
 
                         }
                     }
@@ -82,14 +88,10 @@ namespace ToyRobot
                     {
                         Console.WriteLine(robot.GetCurrentPosition().ErrorMessage);
                         Console.WriteLine("Last valid location: " + robot.ToString());
-                        Console.WriteLine("Press any key to exit.");
-                        Console.ReadKey();
-                        return;
                     }
                 }
             }
 
-            Console.WriteLine("Output: " + robot.ToString());
             Console.WriteLine("Press any key to exit.");
             Console.ReadKey();
 

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ToyRobot
 {
+    /// <summary>
+    /// Defined acceptable directions
+    /// </summary>
     public enum Direction
     {
         North,
@@ -14,6 +17,9 @@ namespace ToyRobot
         West
     }
 
+    /// <summary>
+    /// Define acceptable rotations.
+    /// </summary>
     public enum Rotation
     {
         Left,

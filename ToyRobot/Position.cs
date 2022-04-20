@@ -8,12 +8,21 @@ namespace ToyRobot
 {
     public class Position
     {
-
+        /// <summary>
+        /// Empty constructor for the class
+        /// </summary>
         public Position()
         {
             ErrorMessage = string.Empty;
         }
 
+
+        /// <summary>
+        /// Initialize the position of the toy robot.
+        /// </summary>
+        /// <param name="x">Initial location on x-axis on the board</param>
+        /// <param name="y">Initial location on y-axix on the board</param>
+        /// <param name="direction">Initial direction of the robot where it is facing</param>
         public Position(int x, int y, string direction) : this()
         {
             X = x;
@@ -30,7 +39,11 @@ namespace ToyRobot
 
         public string ErrorMessage { get; set; }
 
-
+        /// <summary>
+        /// Compare the position and direction the object
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public override bool Equals(object obj)
         {
             if (obj == null)
@@ -44,6 +57,11 @@ namespace ToyRobot
 
         }
 
+        /// <summary>
+        /// Convert the string direction to a numerical value based from enum.
+        /// </summary>
+        /// <param name="direction">Defined direction in string data type.</param>
+        /// <returns></returns>
         private Direction ConvertToDirection(string direction)
         {
             switch (direction.ToLowerInvariant())
